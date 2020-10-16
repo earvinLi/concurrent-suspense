@@ -1,34 +1,26 @@
 import React from 'react';
 import './App.css';
-import fetchGraphQL from './fetchGraphQL';
+import graphql from 'babel-plugin-relay/macro';
+import {
 
-const {
-  useEffect,
-  useState,
-} = React;
+  userPreloadedQuery,
+} from 'react-relay/hooks';
 
-function App() {
-  const [name, setName] = useState(null);
+const RepositoryNameQuery = graphql`
+  query AppRepositoryNameQuery {
+    repository(owner: "facebook" name: "relay") {
+      name
+    }
+  }
+`;
 
-  useEffect(() => {
-    let isMounted = true;
-    fetchGraphQL(`
-      query RepositoryNameQuery {
-        repository(owner: "facebook" name: "relay") {
-          name
-        }
-      }
-    `).then(response => {
-      if (!isMounted) return;
-      console.log(response);
-      setName(response.data.repository.name);
-    }).catch(error => console.error(error));
-  }, [fetchGraphQL]);
+function App(props) {
+  const data = userPreloadedQuery(RepositoryNameQuery, props.preloadedQuery)
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>{name !== null ? `Repository: ${name}` : "Loading"}</p>
+        <p>{data.repository.name}</p>
       </header>
     </div>
   );
