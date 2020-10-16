@@ -8,21 +8,21 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type src_indexRepositoryNameQueryVariables = {||};
-export type src_indexRepositoryNameQueryResponse = {|
+export type QueryRepositoryNameQueryVariables = {||};
+export type QueryRepositoryNameQueryResponse = {|
   +repository: ?{|
     +name: string
   |}
 |};
-export type src_indexRepositoryNameQuery = {|
-  variables: src_indexRepositoryNameQueryVariables,
-  response: src_indexRepositoryNameQueryResponse,
+export type QueryRepositoryNameQuery = {|
+  variables: QueryRepositoryNameQueryVariables,
+  response: QueryRepositoryNameQueryResponse,
 |};
 */
 
 
 /*
-query src_indexRepositoryNameQuery {
+query QueryRepositoryNameQuery {
   repository(owner: "facebook", name: "relay") {
     name
     id
@@ -55,7 +55,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "src_indexRepositoryNameQuery",
+    "name": "QueryRepositoryNameQuery",
     "selections": [
       {
         "alias": null,
@@ -77,7 +77,7 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "src_indexRepositoryNameQuery",
+    "name": "QueryRepositoryNameQuery",
     "selections": [
       {
         "alias": null,
@@ -101,16 +101,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "52bdebb95e51b0323299201017951f04",
+    "cacheID": "7c438bec5d6392a77df1e0ac1cbb075b",
     "id": null,
     "metadata": {},
-    "name": "src_indexRepositoryNameQuery",
+    "name": "QueryRepositoryNameQuery",
     "operationKind": "query",
-    "text": "query src_indexRepositoryNameQuery {\n  repository(owner: \"facebook\", name: \"relay\") {\n    name\n    id\n  }\n}\n"
+    "text": "query QueryRepositoryNameQuery {\n  repository(owner: \"facebook\", name: \"relay\") {\n    name\n    id\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'd86819c794624ac492aada106ec6607b';
+(node/*: any*/).hash = '01b4c02ed5d89ccf5b840fa8277c683e';
 
 module.exports = node;

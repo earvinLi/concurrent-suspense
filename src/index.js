@@ -3,22 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import graphql from 'babel-plugin-relay/macro';
 import {
   RelayEnvironmentProvider,
   preloadQuery,
 } from 'react-relay/hooks';
 import RelayEnvironment from './RelayEnvironment';
+import RepositoryNameQuery from './Query';
 
 const { Suspense } = React;
-
-const RepositoryNameQuery = graphql`
-  query src_indexRepositoryNameQuery {
-    repository(owner: "facebook" name: "relay") {
-      name
-    }
-  }
-`;
 
 const preloadedQuery = preloadQuery(RelayEnvironment, RepositoryNameQuery, {});
 
